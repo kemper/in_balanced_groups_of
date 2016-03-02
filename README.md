@@ -1,6 +1,6 @@
 # InBalancedGroupsOf
 
-TODO: Write a gem description
+This provides functionality similar to in_groups_of, but better balanced.
 
 ## Installation
 
@@ -20,7 +20,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+By default, the gem adds 2 methods to Array: in_balanced_groups_of and divide_into_x_groups
+
+You can choose to not monkey patch Array and just use the functions by doing:
+
+```ruby
+gem 'in_balanced_groups_of', require: "in_balanced_groups_of/array"
+```
+
+and then calling the functions directly:
+
+```ruby
+InBalancedGroupsOf::Array.in_balanced_groups_of(array, 3)
+InBalancedGroupsOf::Array.divide_into_x_groups(array, 3)
+```
 
 ## Contributing
 
