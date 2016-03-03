@@ -5,6 +5,8 @@ module InBalancedGroupsOf
 
       groups = array.size / number
       groups += 1 if array.size % number != 0
+      return [[]] if groups == 0
+
       divide_into_x_groups array, groups
     end
 
