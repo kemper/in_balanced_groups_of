@@ -1,6 +1,6 @@
 module InBalancedGroupsOf
   module Array
-    def self.in_balanced_groups_of(array, number, fill_with = nil)
+    def self.in_balanced_groups_of(array, number)
       number = validate_integer(number)
 
       groups = array.size / number
@@ -20,9 +20,11 @@ module InBalancedGroupsOf
         group_sizes[i] = group_sizes[i] + 1
       end
 
-      group_sizes.map.with_index do |group, index|
-        start = group * index
+      last_index = 0
+      group_sizes.map do |group|
+        start = last_index
         end_index = start + group
+        last_index = end_index
         array[start...end_index]
       end
     end
@@ -36,8 +38,8 @@ module InBalancedGroupsOf
     end
 
     module InstanceMethods
-      def in_balanced_groups_of(number, fill_with = nil)
-        Array.in_balanced_groups_of(self, number, fill_with)
+      def in_balanced_groups_of(number)
+        Array.in_balanced_groups_of(self, number)
       end
 
       def divide_into_x_groups(number)

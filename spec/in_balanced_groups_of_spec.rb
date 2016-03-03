@@ -33,8 +33,8 @@ RSpec.describe "InBalancedGroupsOf" do
 
       expect(groups[0]).to eq [1, 2, 3, 4, 5, 6, 7, 8]
       expect(groups[1]).to eq [9, 10, 11, 12, 13, 14, 15, 16]
-      expect(groups[2]).to eq [15, 16, 17, 18, 19, 20, 21]
-      expect(groups[3]).to eq [22, 23, 24, 25, 26, 27, 28]
+      expect(groups[2]).to eq [17, 18, 19, 20, 21, 22, 23]
+      expect(groups[3]).to eq [24, 25, 26, 27, 28, 29, 30]
     end
 
     it "works with floats" do
@@ -70,14 +70,24 @@ RSpec.describe "InBalancedGroupsOf" do
       expect(groups).to eq [[1], [2], [3]]
     end
 
+    xit "returns a balanced set of groups for 30 / 4 with_fill" do
+      array = (1..30).to_a
+      groups = array.in_balanced_groups_of(8)
+      expect(groups.size).to eq 4
+      expect(groups[0]).to eq [1,2,3,4,5,6,7,8]
+      expect(groups[1]).to eq [9,10,11,12,13,14,15,16]
+      expect(groups[2]).to eq [17, 18, 19, 20, 21, 22, 23, nil]
+      expect(groups[3]).to eq [24, 25, 26, 27, 28, 29, 30, nil]
+    end
+
     it "returns a balanced set of groups for 30 / 4" do
       array = (1..30).to_a
       groups = array.in_balanced_groups_of(8)
       expect(groups.size).to eq 4
-      expect(groups[0].size).to eq 8
-      expect(groups[1].size).to eq 8
-      expect(groups[2].size).to eq 7
-      expect(groups[3].size).to eq 7
+      expect(groups[0]).to eq [1,2,3,4,5,6,7,8]
+      expect(groups[1]).to eq [9,10,11,12,13,14,15,16]
+      expect(groups[2]).to eq [17, 18, 19, 20, 21, 22, 23]
+      expect(groups[3]).to eq [24, 25, 26, 27, 28, 29, 30]
     end
 
     it "returns a balanced set of groups for 30 / 3" do
