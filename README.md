@@ -1,6 +1,8 @@
 # InBalancedGroupsOf
 
-This provides functionality similar to in_groups_of, but better balanced.
+This is an in order, balanced version of in_groups_of.
+
+This provides functionality similar to in_groups_of.
 
 ## Installation
 
@@ -32,7 +34,6 @@ and then calling the functions directly:
 
 ```ruby
 InBalancedGroupsOf::Array.in_balanced_groups_of(array, 3)
-InBalancedGroupsOf::Array.divide_into_x_groups(array, 3)
 ```
 
 ## Contributing
